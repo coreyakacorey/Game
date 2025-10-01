@@ -20,6 +20,8 @@ public:
 
 	bool running() { return isRunning;  }
 
+	static SDL_Renderer *renderer;
+
 private:
 	int count = 0;
 	bool isRunning;
@@ -28,5 +30,6 @@ private:
 
 
 };
+
 
 #endif /* Game_h */
