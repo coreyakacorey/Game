@@ -43,7 +43,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	player = new GameObject("assests/player.png", renderer, 0, 0);
+	player = new GameObject("assests/player.png", 0, 0);
 }
 
 void Game::handelEvents()
@@ -80,5 +80,6 @@ void Game::clean()
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
 }
+
 
 
