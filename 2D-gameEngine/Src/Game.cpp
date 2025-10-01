@@ -4,6 +4,8 @@
 
 GameObject* player;
 
+SDL_Renderer* Game::renderer = nullptr;
+
 Game::Game()
 {}
 Game::~Game()
@@ -78,4 +80,5 @@ void Game::clean()
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
 }
+
 
