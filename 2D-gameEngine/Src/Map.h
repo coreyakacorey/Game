@@ -5,7 +5,7 @@ public:
   Map();
   ~Map();
 
-  void loadMap();
+  void loadMap(int arr[20][25]);
   void drawMap();
 
 private:
