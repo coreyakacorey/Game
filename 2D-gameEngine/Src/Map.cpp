@@ -29,8 +29,8 @@ Map::Map(){
   water = TextureManager::LoadTexture("assets/water.png");
 }
 
-void Map::loadMap(){
-
+void Map::loadMap(int arr[20][25]){
+  for
 }
 
 void Map::drawMap(){
