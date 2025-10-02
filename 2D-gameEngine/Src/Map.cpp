@@ -27,12 +27,28 @@ Map::Map(){
   dirt = TextureManager::LoadTexture("assets/drit.png");
   grass = TextureManager::LoadTexture("assets/grass.png");
   water = TextureManager::LoadTexture("assets/water.png");
+
+  LoadMap(lvl1);
 }
 
 void Map::loadMap(int arr[20][25]){
-  for
+  for(int row = 0; row < 20; row++){
+    for(int column = 0; column < 25; column++){
+      map[row][column] = arr[row][column];
+    }
+  }
 }
 
 void Map::drawMap(){
-
+  int type = 0;
+  
+  for(int row = 0; row < 20; row++){
+    for(int column = 0; column < 25; column++){
+      type = map[row][column];
+      switch(type){
+        case 0:
+          
+      }
+    }
+  }
 }
