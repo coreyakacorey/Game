@@ -75,6 +75,10 @@
     <LibraryPath>C:\Users\corey\Downloads\Dev\Dev\SDL2_image-2.0.1\lib\x86;C:\Users\corey\Downloads\Dev\Dev\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
     <PublicModuleDirectories>C:\Users\corey\Downloads\Dev\Dev\SDL2_image-2.0.1\include;$(PublicModuleDirectories)</PublicModuleDirectories>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ExternalIncludePath>C:\Users\corey\Downloads\Dev\Dev\SDL2\include;C:\Users\corey\Downloads\Dev\Dev\SDL2_image-2.0.1\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Users\corey\Downloads\Dev\Dev\SDL2\lib\x86;C:\Users\corey\Downloads\Dev\Dev\SDL2_image-2.0.1\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -111,10 +115,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\corey\Downloads\Dev\Dev\SDL2\include;C:\Users\corey\Downloads\Dev\Dev\SDL2_image-2.0.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\corey\Downloads\Dev\Dev\SDL2\lib\x86;C:\Users\corey\Downloads\Dev\Dev\SDL2_image-2.0.1\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2_image.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -134,7 +141,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Image Include="Assests\dirt.png" />
+    <Image Include="Assests\grass.png" />
     <Image Include="Assests\player.png" />
+    <Image Include="Assests\water.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Game.cpp" />
@@ -148,6 +158,7 @@
     <ClInclude Include="Src\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assests\.gitignor" />
     <None Include="libpng16-16.dll" />
     <None Include="SDL2.dll" />
     <None Include="SDL2_image.dll" />
