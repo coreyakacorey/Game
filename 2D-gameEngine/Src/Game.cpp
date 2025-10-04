@@ -1,10 +1,12 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "GameObject.h"
+#include "Map.h"
 
 GameObject* player;
 
 SDL_Renderer* Game::renderer = nullptr;
+Map* map;
 
 Game::Game()
 {}
@@ -29,10 +31,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 			std::cout << "Window created!" << std::endl;
 		}
 
-		renderer = SDL_CreateRenderer(window, -1, 0);
-		if (renderer) 
+		Game::renderer = SDL_CreateRenderer(window, -1, 0);
+		if (Game::renderer)
 		{
-			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+			SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
 			std::cout << "Renderer created!" << std::endl;
 		}
 
@@ -43,7 +45,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	player = new GameObject("assests/player.png", 0, 0);
+	player = new GameObject("assests/Turtle.png", 0, 0);
+	map = new Map();
 }
 
 void Game::handelEvents()
@@ -64,19 +67,21 @@ void Game::handelEvents()
 void Game::update()
 {
 	player->Update();
+	//map->LoadMap();
 }
 
 void Game::render()
 {
-	SDL_RenderClear(renderer);
+	SDL_RenderClear(Game::renderer);
+	map->drawMap();
 	player->Render();
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(Game::renderer);
 }
 
 void Game::clean()
 {
 	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
+	SDL_DestroyRenderer(Game::renderer);
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
 }

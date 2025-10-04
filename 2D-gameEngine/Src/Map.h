@@ -2,19 +2,19 @@
 
 class Map {
 public:
-  Map();
-  ~Map();
+	Map();
+	~Map();
 
-  void loadMap(int arr[20][25]);
-  void drawMap();
+	void loadMap(int arr[20][25]);
+	void drawMap();
 
 private:
-  SDL_Rect sourceRectangle, destinationRectangle;
+	SDL_Rect sourceRectangle, destinationRectangle;
 
-  SDL_Texture* dirt;
-  SDL_Textuer* grass;
-  SDL_Texture* water;
+	SDL_Texture* dirt;
+	SDL_Texture* grass;
+	SDL_Texture* water;
 
-  int map[20][25];
+	int map[20][25];
 
-}
+};

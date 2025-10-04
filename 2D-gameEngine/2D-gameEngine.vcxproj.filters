@@ -27,6 +27,9 @@
     <Image Include="Assests\water.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Assests\Turtle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Game.cpp">
@@ -64,5 +67,6 @@
     <None Include="SDL2.dll" />
     <None Include="SDL2_image.dll" />
     <None Include="zlib1.dll" />
+    <None Include=".gitignore" />
   </ItemGroup>
 </Project>

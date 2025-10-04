@@ -144,6 +144,7 @@
     <Image Include="Assests\dirt.png" />
     <Image Include="Assests\grass.png" />
     <Image Include="Assests\player.png" />
+    <Image Include="Assests\Turtle.png" />
     <Image Include="Assests\water.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="Src\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <None Include="libpng16-16.dll" />
     <None Include="SDL2.dll" />
     <None Include="SDL2_image.dll" />
