@@ -2,11 +2,16 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "Map.h"
+#include "ECS.h"
+#include "Components.h"
 
 GameObject* player;
 
 SDL_Renderer* Game::renderer = nullptr;
 Map* map;
+
+Manager manager;
+auto& newPlayer(manager.addEntity());
 
 Game::Game()
 {}
@@ -47,6 +52,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	player = new GameObject("assests/Turtle.png", 0, 0);
 	map = new Map();
+
+	newPlayer.addComponent<PositionComponent>();
 }
 
 void Game::handelEvents()
@@ -68,6 +75,8 @@ void Game::update()
 {
 	player->Update();
 	//map->LoadMap();
+	manager.update();
+	std::cout << newPlayer.getComponent<PositionComponent>().x() << "," << newPlayer.getComponent<PositionComponent>().y() << std::endl;
 }
 
 void Game::render()
