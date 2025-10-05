@@ -17,6 +17,14 @@ auto& player(manager.addEntity());
 auto& enemy(manager.addEntity());
 auto& wall(manager.addEntity());
 
+enum groupLabels : std::size_t{
+	groupMap,
+	groupPlayers,
+	groupEnemies,
+	groupColliders
+	//Can have up to 32 groups
+};
+
 Game::Game()
 {}
 Game::~Game()
@@ -63,14 +71,17 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	player.addComponent<SpriteComponent>("assests/Turtle.png");
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
+	player.addGroup(groupPlayers);
 
 	enemy.addComponent<TransformComponent>(384, 128);
 	enemy.addComponent<SpriteComponent>("assests/Enemy.png");
 	enemy.addComponent<ColliderComponent>("enemy");
+	enemy.addGroup(groupEnemies);
 
 	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 20, 1);
 	wall.addComponent<SpriteComponent>("assests/dirt.png");
 	wall.addComponent<ColliderComponent>("wall");
+	wall.addGroup(groupMap);
 }
 
 void Game::handelEvents()
@@ -101,11 +112,23 @@ void Game::update()
 	}
 }
 
+//Lists of objests in each group
+auto& tiles(manager.getGroup(groupMap));
+auto& players(manager.getGroup(groupPlayers));
+auto& enemies(manager.getGroup(groupEnemies));
+
 void Game::render()
 {
 	SDL_RenderClear(Game::renderer);
-
-	manager.draw();
+	for(auto& t : tiles){
+		t->draw();
+	}
+	for(auto& p : players){
+		p->draw();
+	}
+	for(auto& e : enemies){
+		e->draw();
+	}
 	SDL_RenderPresent(Game::renderer);
 }
 
@@ -120,7 +143,9 @@ void Game::clean()
 void Game::AddTile(int id, int x, int y) {
 	auto& tile(manager.addEntity());
 	tile.addComponent<TileComponent>(x, y, 32, 32, id);
+	tile.addGroup(groupMap);
 }
+
 
 
 
