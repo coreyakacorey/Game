@@ -9,9 +9,22 @@ private:
 	SDL_Texture* texture;
 	SDL_Rect sourceRectangle, destinationRectangle;
 
+	bool animated = false;
+	int frames = 0;
+	int speed = 100;	//Delay between frames (ms)
+
 public:
 	SpriteComponent() = default;
+	//Non-animated sprite constructor 
 	SpriteComponent(const char* path) {
+		setTex(path);
+	}
+
+	//Animated sprite constructor
+	SpriteComponent(const char* path, int nFrames, int mSpeed) {
+		animated = true;
+		frames = nFrames;
+		speed = mSpeed;
 		setTex(path);
 	}
 
@@ -33,6 +46,12 @@ public:
 	}
 
 	void update() override {
+
+		if(animated){
+			//Remainder of frames after delay multiplies by rectangle width
+			sourceRectangle.x = sourceRectangle.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
+		}
+		
 		destinationRectangle.x = static_cast<int>(transform->position.x);
 		destinationRectangle.y = static_cast<int>(transform->position.y);
 		destinationRectangle.w = transform->width * transform->scale;
