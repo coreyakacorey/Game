@@ -1,17 +1,21 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "GameObject.h"
 #include "Map.h"
-#include "ECS.h"
-#include "Components.h"
+#include "ECS/Components.h"
+#include "Vector2D.h"
+#include "Collision.h"
 
-GameObject* player;
 
 SDL_Renderer* Game::renderer = nullptr;
 Map* map;
+SDL_Event Game::event;
+
+std::vector<ColliderComponent*> Game::colliders;
 
 Manager manager;
-auto& newPlayer(manager.addEntity());
+auto& player(manager.addEntity());
+auto& enemy(manager.addEntity());
+auto& wall(manager.addEntity());
 
 Game::Game()
 {}
@@ -50,16 +54,30 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	player = new GameObject("assests/Turtle.png", 0, 0);
 	map = new Map();
 
-	newPlayer.addComponent<PositionComponent>();
+	Map::loadMap("assests/16x16.map", 16, 16);
+
+	//player.addComponent<TransformComponent>(284,64);
+	player.addComponent<TransformComponent>(2);
+	player.addComponent<SpriteComponent>("assests/Turtle.png");
+	player.addComponent<KeyboardController>();
+	player.addComponent<ColliderComponent>("player");
+
+	enemy.addComponent<TransformComponent>(384, 128);
+	enemy.addComponent<SpriteComponent>("assests/Enemy.png");
+	enemy.addComponent<ColliderComponent>("enemy");
+
+	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 20, 1);
+	wall.addComponent<SpriteComponent>("assests/dirt.png");
+	wall.addComponent<ColliderComponent>("wall");
 }
 
 void Game::handelEvents()
 {
-	SDL_Event event;
+
 	SDL_PollEvent(&event);
+
 	switch (event.type)
 	{
 	case SDL_QUIT:
@@ -73,17 +91,21 @@ void Game::handelEvents()
 
 void Game::update()
 {
-	player->Update();
+	
 	//map->LoadMap();
+	manager.refresh();
 	manager.update();
-	std::cout << newPlayer.getComponent<PositionComponent>().x() << "," << newPlayer.getComponent<PositionComponent>().y() << std::endl;
+
+	for (auto cc : colliders) {
+		Collision::AABB(player.getComponent<ColliderComponent>(), *cc); 
+	}
 }
 
 void Game::render()
 {
 	SDL_RenderClear(Game::renderer);
-	map->drawMap();
-	player->Render();
+
+	manager.draw();
 	SDL_RenderPresent(Game::renderer);
 }
 
@@ -93,6 +115,11 @@ void Game::clean()
 	SDL_DestroyRenderer(Game::renderer);
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
+}
+
+void Game::AddTile(int id, int x, int y) {
+	auto& tile(manager.addEntity());
+	tile.addComponent<TileComponent>(x, y, 32, 32, id);
 }
 
 

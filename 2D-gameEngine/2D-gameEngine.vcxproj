@@ -142,28 +142,39 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Image Include="Assests\dirt.png" />
+    <Image Include="Assests\Enemy.png" />
     <Image Include="Assests\grass.png" />
     <Image Include="Assests\player.png" />
     <Image Include="Assests\Turtle.png" />
     <Image Include="Assests\water.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Collision.cpp" />
     <ClCompile Include="Src\Game.cpp" />
     <ClCompile Include="Src\GameObject.cpp" />
     <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\Map.cpp" />
     <ClCompile Include="Src\TextureManager.cpp" />
+    <ClCompile Include="Src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Components.h" />
-    <ClInclude Include="Src\ECS.h" />
+    <ClInclude Include="Src\Collision.h" />
+    <ClInclude Include="Src\ECS\ColliderComponent.h" />
+    <ClInclude Include="Src\ECS\Components.h" />
+    <ClInclude Include="Src\ECS\ECS.h" />
+    <ClInclude Include="Src\ECS\KeyboardControllerh.h" />
+    <ClInclude Include="Src\ECS\TileComponent.h" />
+    <ClInclude Include="Src\ECS\TransformComponent.h" />
+    <ClInclude Include="Src\ECS\SpriteComponenet.h" />
     <ClInclude Include="Src\Game.h" />
     <ClInclude Include="Src\GameObject.h" />
     <ClInclude Include="Src\Map.h" />
     <ClInclude Include="Src\TextureManager.h" />
+    <ClInclude Include="Src\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="Assests\16x16.map" />
     <None Include="libpng16-16.dll" />
     <None Include="SDL2.dll" />
     <None Include="SDL2_image.dll" />

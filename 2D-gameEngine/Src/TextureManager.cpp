@@ -10,6 +10,5 @@ SDL_Texture* TextureManager::LoadTexture(const char* texture) {
 }
 
 void TextureManager::Draw(SDL_Texture* tex, SDL_Rect sourcePosisiton, SDL_Rect destinationPosisiton){
-	std::cout << "here" << std::endl;
 	SDL_RenderCopy(Game::renderer, tex, &sourcePosisiton, &destinationPosisiton);
 }

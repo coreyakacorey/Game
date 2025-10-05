@@ -1,2 +1,23 @@
-﻿  Game.cpp
+﻿  Collision.cpp
+  Game.cpp
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244:         with
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244:         [
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244:             _Ty=int
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244:         ]
+  (compiling source file 'Src/Game.cpp')
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(67,7):
+  	see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int>(int &&,int &&)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+  
+  GameObject.cpp
+  Map.cpp
+  TextureManager.cpp
+  main.cpp
+  Generating Code...
   2D-gameEngine.vcxproj -> C:\Users\corey\Source\Repos\Game\2D-gameEngine\Debug\2D-gameEngine.exe
