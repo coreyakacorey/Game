@@ -68,7 +68,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	//player.addComponent<TransformComponent>(284,64);
 	player.addComponent<TransformComponent>(2);
-	player.addComponent<SpriteComponent>("assests/Turtle.png");
+	player.addComponent<SpriteComponent>("assests/Turtle_idle.png", 4, 100);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
@@ -145,6 +145,7 @@ void Game::AddTile(int id, int x, int y) {
 	tile.addComponent<TileComponent>(x, y, 32, 32, id);
 	tile.addGroup(groupMap);
 }
+
 
 
 
