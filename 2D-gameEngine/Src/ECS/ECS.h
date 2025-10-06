@@ -19,7 +19,7 @@ inline ComponentID getNewComponentTypeID() {
 }
 
 template <typename T> inline ComponentID getComponentTypeID() noexcept {
-	static ComponentID typeID = getComponentNewTypeID();
+	static ComponentID typeID = getNewComponentTypeID();
 	return typeID;
 }
 
@@ -56,7 +56,7 @@ private:
 	GroupBitSet groupBitSet;
 
 public:
-	Entity(Manager& mManager) : manager(mManager){}
+	Entity(Manager& mManager) : manager(mManager) {}
 
 	void update() {
 		for (auto& c : components) c->update();
@@ -137,7 +137,7 @@ public:
 	}
 
 	std::vector<Entity*>& getGroup(Group mGroup){
-		return groupedEntities[mGroup};
+		return groupedEntities[mGroup];
 	}
 
 	Entity& addEntity() {
