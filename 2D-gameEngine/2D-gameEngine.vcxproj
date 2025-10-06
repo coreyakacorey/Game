@@ -145,7 +145,10 @@
     <Image Include="Assests\Enemy.png" />
     <Image Include="Assests\grass.png" />
     <Image Include="Assests\player.png" />
+    <Image Include="Assests\Turtle_animations.png" />
+    <Image Include="Assests\Turtle_idle.png" />
     <Image Include="Assests\Turtle.png" />
+    <Image Include="Assests\Turtle_walking.png" />
     <Image Include="Assests\water.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Collision.h" />
+    <ClInclude Include="Src\ECS\Animation.h" />
     <ClInclude Include="Src\ECS\ColliderComponent.h" />
     <ClInclude Include="Src\ECS\Components.h" />
     <ClInclude Include="Src\ECS\ECS.h" />

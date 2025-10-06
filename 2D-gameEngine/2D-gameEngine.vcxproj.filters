@@ -33,6 +33,15 @@
     <Image Include="Assests\Enemy.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Assests\Turtle_idle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assests\Turtle_walking.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assests\Turtle_animations.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Game.cpp">
@@ -98,6 +107,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\ECS\TileComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\ECS\Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
