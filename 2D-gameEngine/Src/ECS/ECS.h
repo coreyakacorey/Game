@@ -60,7 +60,6 @@ public:
 
 	void update() {
 		for (auto& c : components) c->update();
-		
 	}
 
 	void draw() {

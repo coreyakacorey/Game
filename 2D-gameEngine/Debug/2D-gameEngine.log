@@ -1,23 +1,187 @@
 ﻿  Collision.cpp
-  Game.cpp
-C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244:         with
-C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244:         [
-C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244:             _Ty=int
-C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33): warning C4244:         ]
-  (compiling source file 'Src/Game.cpp')
-  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(69,33):
-  the template instantiation context (the oldest one first) is
-  	C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(67,7):
-  	see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int>(int &&,int &&)' being compiled
-          with
-          [
-              T=TransformComponent
-          ]
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(22,30): error C3861: 'getComponentNewTypeID': identifier not found
+  (compiling source file 'Src/Collision.cpp')
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(22,51):
+  'getComponentNewTypeID': function declaration must be available as none of the arguments depend on a template parameter
   
-  GameObject.cpp
-  Map.cpp
-  TextureManager.cpp
-  main.cpp
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(141,32): error C2958: the left bracket '[' found at 'C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(141)' was not matched correctly
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,8): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(124,9): error C2187: syntax error: 'Entity' was unexpected here
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(124,17): error C2065: 'mEntity': undeclared identifier
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(124,24): error C2059: syntax error: ')'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(124,25): error C2143: syntax error: missing ';' before '{'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(125,14): error C2065: 'mEntity': undeclared identifier
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(125,37): error C2065: 'mEntity': undeclared identifier
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(126,6): error C2059: syntax error: ')'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(126,7): error C2059: syntax error: ','
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(127,15): error C2059: syntax error: ')'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(130,89): error C2923: 'std::unique_ptr': 'Entity' is not a valid template type argument for parameter '_Ty'
+  (compiling source file 'Src/Collision.cpp')
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,2):
+  see declaration of 'Entity'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(130,89): error C2976: 'std::unique_ptr': too few template arguments
+  (compiling source file 'Src/Collision.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(3203,1):
+  see declaration of 'std::unique_ptr'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(131,12): error C2678: binary '->': no operator found which takes a left-hand operand of type 'const std::unique_ptr' (or there is no acceptable conversion)
+  (compiling source file 'Src/Collision.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(3296,37):
+  could be '_Get_deleter_pointer_type<_Ty,remove_reference<_Ty1>::type,void>::type std::unique_ptr<_Ty,_Dx>::operator ->(void) noexcept const'
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(131,12):
+  while trying to match the argument list '(const std::unique_ptr)'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(131,21): error C2039: 'isActive': is not a member of 'std::unique_ptr'
+  (compiling source file 'Src/Collision.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(3203,1):
+  see declaration of 'std::unique_ptr'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(141,32): error C2059: syntax error: '}'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,22): error C2059: syntax error: '{'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,22): error C2143: syntax error: missing ';' before '{'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,22): error C2447: '{': missing function header (old-style formal list?)
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(150,1): error C2059: syntax error: '}'
+  (compiling source file 'Src/Collision.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(150,1): error C2143: syntax error: missing ';' before '}'
+  (compiling source file 'Src/Collision.cpp')
+  
+  Game.cpp
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(22,30): error C3861: 'getComponentNewTypeID': identifier not found
+  (compiling source file 'Src/Game.cpp')
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(22,51):
+  'getComponentNewTypeID': function declaration must be available as none of the arguments depend on a template parameter
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(141,32): error C2958: the left bracket '[' found at 'C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(141)' was not matched correctly
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,8): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(124,9): error C2187: syntax error: 'Entity' was unexpected here
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(124,17): error C2065: 'mEntity': undeclared identifier
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(124,24): error C2059: syntax error: ')'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(124,25): error C2143: syntax error: missing ';' before '{'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(125,14): error C2065: 'mEntity': undeclared identifier
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(125,37): error C2065: 'mEntity': undeclared identifier
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(126,6): error C2059: syntax error: ')'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(126,7): error C2059: syntax error: ','
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(127,15): error C2059: syntax error: ')'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(130,89): error C2923: 'std::unique_ptr': 'Entity' is not a valid template type argument for parameter '_Ty'
+  (compiling source file 'Src/Game.cpp')
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,2):
+  see declaration of 'Entity'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(130,89): error C2976: 'std::unique_ptr': too few template arguments
+  (compiling source file 'Src/Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(3203,1):
+  see declaration of 'std::unique_ptr'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(131,12): error C2678: binary '->': no operator found which takes a left-hand operand of type 'const std::unique_ptr' (or there is no acceptable conversion)
+  (compiling source file 'Src/Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(3296,37):
+  could be '_Get_deleter_pointer_type<_Ty,remove_reference<_Ty1>::type,void>::type std::unique_ptr<_Ty,_Dx>::operator ->(void) noexcept const'
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(131,12):
+  while trying to match the argument list '(const std::unique_ptr)'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(131,21): error C2039: 'isActive': is not a member of 'std::unique_ptr'
+  (compiling source file 'Src/Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(3203,1):
+  see declaration of 'std::unique_ptr'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(141,32): error C2059: syntax error: '}'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,22): error C2059: syntax error: '{'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,22): error C2143: syntax error: missing ';' before '{'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(144,22): error C2447: '{': missing function header (old-style formal list?)
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(150,1): error C2059: syntax error: '}'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(150,1): error C2143: syntax error: missing ';' before '}'
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(16,22): error C2039: 'addEntity': is not a member of 'Manager'
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(106,7):
+  see declaration of 'Manager'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(16,13): error C2119: 'player': the type for 'auto &' cannot be deduced from an empty initializer
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(17,21): error C2039: 'addEntity': is not a member of 'Manager'
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(106,7):
+  see declaration of 'Manager'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(17,12): error C2119: 'enemy': the type for 'auto &' cannot be deduced from an empty initializer
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(18,20): error C2039: 'addEntity': is not a member of 'Manager'
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(106,7):
+  see declaration of 'Manager'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(18,11): error C2119: 'wall': the type for 'auto &' cannot be deduced from an empty initializer
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(72,42): error C2059: syntax error: ')'
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(111,58): error C2059: syntax error: ')'
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(144,21): error C2039: 'addEntity': is not a member of 'Manager'
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(106,7):
+  see declaration of 'Manager'
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(144,12): error C2119: 'tile': the type for 'auto &' cannot be deduced from an empty initializer
   Generating Code...
-  2D-gameEngine.vcxproj -> C:\Users\corey\Source\Repos\Game\2D-gameEngine\Debug\2D-gameEngine.exe
