@@ -12,6 +12,8 @@ SDL_Event Game::event;
 
 std::vector<ColliderComponent*> Game::colliders;
 
+bool Game::isRunning = false;
+
 Manager manager;
 auto& player(manager.addEntity());
 auto& enemy(manager.addEntity());
@@ -144,6 +146,7 @@ void Game::AddTile(int srcX, int srcY, int xpos, int ypos) {
 	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos, mapfile);
 	tile.addGroup(groupMap);
 }
+
 
 
 
