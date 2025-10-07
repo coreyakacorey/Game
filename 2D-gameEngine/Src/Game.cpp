@@ -109,13 +109,6 @@ void Game::update()
 	manager.refresh();
 	manager.update();
 
-	Vector2D pVel = player.getComponent<TransformComponent>().velocity;
-	int pSpeed = player.getComponent<TransformComponent>().speed;
-
-	for(auto t : tiles){
-		t->getComponent<TileComponent>().destinationRectangle.x += -(pVel.x * pSpeed);
-		t->getComponent<TileComponent>().destinationRectangle.y += -(pVel.y * pSpeed);
-	}
 }
 
 void Game::render()
@@ -146,6 +139,7 @@ void Game::AddTile(int srcX, int srcY, int xpos, int ypos) {
 	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos, mapfile);
 	tile.addGroup(groupMap);
 }
+
 
 
 
