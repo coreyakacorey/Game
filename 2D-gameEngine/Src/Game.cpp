@@ -26,6 +26,11 @@ enum groupLabels : std::size_t{
 	//Can have up to 32 groups
 };
 
+//Lists of objests in each group
+auto& tiles(manager.getGroup(groupMap));
+auto& players(manager.getGroup(groupPlayers));
+auto& enemies(manager.getGroup(groupEnemies));
+
 Game::Game()
 {}
 Game::~Game()
@@ -98,20 +103,18 @@ void Game::handelEvents()
 
 void Game::update()
 {
-	
 	//map->LoadMap();
 	manager.refresh();
 	manager.update();
 
-	for (auto cc : colliders) {
-		Collision::AABB(player.getComponent<ColliderComponent>(), *cc); 
+	Vector2D pVel = player.getComponent<TransformComponent>().velocity;
+	int pSpeed = player.getComponent<TransformComponent>().speed;
+
+	for(auto t : tiles){
+		t->getComponent<TileComponent>().destinationRectangle.x += -(pVel.x * pSpeed);
+		t->getComponent<TileComponent>().destinationRectangle.y += -(pVel.y * pSpeed);
 	}
 }
-
-//Lists of objests in each group
-auto& tiles(manager.getGroup(groupMap));
-auto& players(manager.getGroup(groupPlayers));
-auto& enemies(manager.getGroup(groupEnemies));
 
 void Game::render()
 {
@@ -141,6 +144,7 @@ void Game::AddTile(int srcX, int srcY, int xpos, int ypos) {
 	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos, mapfile);
 	tile.addGroup(groupMap);
 }
+
 
 
 
