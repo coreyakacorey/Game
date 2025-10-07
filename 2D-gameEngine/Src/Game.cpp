@@ -15,7 +15,8 @@ std::vector<ColliderComponent*> Game::colliders;
 Manager manager;
 auto& player(manager.addEntity());
 auto& enemy(manager.addEntity());
-auto& wall(manager.addEntity());
+
+const char* mapfile = "assests/terrain_ss.png"
 
 enum groupLabels : std::size_t{
 	groupMap,
@@ -64,7 +65,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	map = new Map();
 
-	Map::loadMap("assests/16x16.map", 16, 16);
+	Map::loadMap("assests/map.map", 25, 20);
 
 	//player.addComponent<TransformComponent>(284,64);
 	player.addComponent<TransformComponent>(2);
@@ -77,11 +78,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	enemy.addComponent<SpriteComponent>("assests/Enemy.png");
 	enemy.addComponent<ColliderComponent>("enemy");
 	enemy.addGroup(groupEnemies);
-
-	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 20, 1);
-	wall.addComponent<SpriteComponent>("assests/dirt.png");
-	wall.addComponent<ColliderComponent>("wall");
-	wall.addGroup(groupMap);
 }
 
 void Game::handelEvents()
@@ -142,9 +138,10 @@ void Game::clean()
 
 void Game::AddTile(int srcX, int srcY, int xpos, int ypos) {
 	auto& tile(manager.addEntity());
-	tile.addComponent<TileComponent>(x, y, 32, 32, id);
+	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos, mapfile);
 	tile.addGroup(groupMap);
 }
+
 
 
 
