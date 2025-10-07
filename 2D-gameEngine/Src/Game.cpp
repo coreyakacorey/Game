@@ -140,11 +140,12 @@ void Game::clean()
 	std::cout << "Game cleaned" << std::endl;
 }
 
-void Game::AddTile(int id, int x, int y) {
+void Game::AddTile(int srcX, int srcY, int xpos, int ypos) {
 	auto& tile(manager.addEntity());
 	tile.addComponent<TileComponent>(x, y, 32, 32, id);
 	tile.addGroup(groupMap);
 }
+
 
 
 
