@@ -33,11 +33,25 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 		}
 	}
 
+	mapFile.ignore();
+	
+	for(int y = 0; y < sizeY; y++){
+		for(int x = 0; x < sizeX; x++){
+			mapFile.get(c);
+			if(c =='1'){
+				auto& tcol(manager.addentity());
+				tcol.addComponent<ColliderComponent>("terrain", x * (tileSize * mapScale), y * (tileSize * mapScale));
+				mapFile.ignore();
+			}
+			mapFile.ignore();
+		}
+	}
+
 	mapFile.close();
 }
 
 void Map::AddTile(int srcX,int srcY, int xpos, int ypos){
 	auto& tile(manager.addEntity());
 	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos,tileSize, mapScale, mapFilePath);
-	tile.addGroup();
+	tile.addGroup(Game::groupMap);
 }
