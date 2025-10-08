@@ -31,3 +31,7 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 
 	mapFile.close();
 }
+
+void Map::AddTile(int srcX,int srcY, int xpos, int ypos){
+	
+}
