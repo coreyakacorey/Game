@@ -12,20 +12,11 @@ SDL_Event Game::event;
 
 SDL_Rect Game::camera = {0,0, 800, 640};
 
-std::vector<ColliderComponent*> Game::colliders;
-
 bool Game::isRunning = false;
 
 Manager manager;
 auto& player(manager.addEntity());
 auto& enemy(manager.addEntity());
-
-const char* mapfile = "assests/terrain_ss.png"
-
-//Lists of objests in each group
-auto& tiles(manager.getGroup(groupMap));
-auto& players(manager.getGroup(groupPlayers));
-auto& enemies(manager.getGroup(groupEnemies));
 
 Game::Game()
 {}
@@ -64,9 +55,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	map = new Map();
+	map = new Map("assests/terrain_ss.png", 3, 32);
 
-	Map::loadMap("assests/map.map", 25, 20);
+	map->loadMap("assests/map.map", 25, 20);
 
 	//player.addComponent<TransformComponent>(284,64);
 	player.addComponent<TransformComponent>(2);
@@ -80,6 +71,12 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	enemy.addComponent<ColliderComponent>("enemy");
 	enemy.addGroup(groupEnemies);
 }
+
+//Lists of objests in each group
+auto& tiles(manager.getGroup(Game::groupMap));
+auto& players(manager.getGroup(Game::groupPlayers));
+auto& enemies(manager.getGroup(Game::groupEnemies));
+auto& colliders(manager.getGroup(Game::groupColliders));
 
 void Game::handelEvents()
 {
@@ -99,9 +96,19 @@ void Game::handelEvents()
 
 void Game::update()
 {
+	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
+	Vector2D playerPos = player.gerComponent<TransformComponent>().position;
+	
 	//map->LoadMap();
 	manager.refresh();
 	manager.update();
+
+	for(auto& c : colliders){
+		SDL_Rect cCol = c->getComponent<ColliderComponent)().collider;
+		if(Collision::AABB(cCol, playerCol)){
+			player.getComponents<TransformComponent>().position = playerPos;
+		}
+	}
 
 	camera.x = player.getComponent<TransformComponent>().position.x - 400;
 	camera.y = player.getComponent<TransformComponent>().position.y - 320;
@@ -120,12 +127,15 @@ void Game::render()
 	for(auto& t : tiles){
 		t->draw();
 	}
+	for(auto& c : colliders){
+		c->draw();
+	}
 	for(auto& p : players){
 		p->draw();
 	}
-	for(auto& e : enemies){
+	/*for(auto& e : enemies){
 		e->draw();
-	}
+	}*/
 	SDL_RenderPresent(Game::renderer);
 }
 
@@ -136,6 +146,7 @@ void Game::clean()
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
 }
+
 
 
 
