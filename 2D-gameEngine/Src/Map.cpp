@@ -33,5 +33,7 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 }
 
 void Map::AddTile(int srcX,int srcY, int xpos, int ypos){
-	
+	auto& tile(manager.addEntity());
+	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos, mapfile);
+	tile.addGroup(groupMap);
 }
