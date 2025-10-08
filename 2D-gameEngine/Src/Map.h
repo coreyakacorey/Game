@@ -13,5 +13,6 @@ private:
 	const char* mapFilePath;
 	int mapScale;
 	int tileSize;
+	int scaledSize;
 	
 };
