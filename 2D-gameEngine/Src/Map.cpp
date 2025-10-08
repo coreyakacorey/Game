@@ -40,7 +40,7 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 			mapFile.get(c);
 			if(c =='1'){
 				auto& tcol(manager.addentity());
-				tcol.addComponent<ColliderComponent>("terrain", x * (tileSize * mapScale), y * (tileSize * mapScale));
+				tcol.addComponent<ColliderComponent>("terrain", x * (tileSize * mapScale), y * (tileSize * mapScale), tileSize * mapScale);
 				mapFile.ignore();
 			}
 			mapFile.ignore();
