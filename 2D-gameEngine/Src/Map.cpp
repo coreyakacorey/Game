@@ -1,9 +1,13 @@
 #include "Map.h"
 #include "Game.h"
 #include <fstream>
+#include "ECS/ECS.h"
+#include "ECS/Components.h"
+
+extern Manager manger;
 
 
-Map::Map(){
+Map::Map(const char* mfp, int ms, int ts) : mapFilePath(mfp), mapScale(ms), tileSize(ts){
   
 }
 
@@ -21,10 +25,10 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 	for (int y = 0; y < sizeY; y++) {
 		for (int x = 0; x < sizeX; x++) {
 			mapFile.get(c);
-			srcY = atoi(&c) * 32;
+			srcY = atoi(&c) * tileSize;
 			mapFile.get(c);
-			srcX = atoi(&c) * 32;
-			Game::AddTile(srcX, srcY, x * 64, y * 64);
+			srcX = atoi(&c) * tileSize;
+			AddTile(srcX, srcY, x * (tileSize * mapScale), y * (tileSize * mapScale));
 			mapFile.ignore();
 		}
 	}
@@ -34,6 +38,6 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 
 void Map::AddTile(int srcX,int srcY, int xpos, int ypos){
 	auto& tile(manager.addEntity());
-	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos, mapfile);
-	tile.addGroup(groupMap);
+	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos,tileSize, mapScale, mapFilePath);
+	tile.addGroup();
 }
