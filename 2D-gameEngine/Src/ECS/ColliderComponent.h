@@ -18,6 +18,13 @@ SDL_Rect srcR, destR;
 		tag = t;
 	}
 
+	ColliderComponent(std::string t, int xpos, int ypos, int size){
+		tag = t;
+		collider.x = xpos;
+		collider.y = ypos;
+		collider.h = collider.w = size;
+	}
+
 	void init() override {
 		if (!entity->hasComponent<TransformComponent>()) {
 			entity->addComponent<TransformComponent>();
