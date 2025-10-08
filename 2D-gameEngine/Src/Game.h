@@ -30,6 +30,14 @@ public:
 	static bool isRunning;
 	static SDL_Rect camera;
 
+	enum groupLabels : std::size_t{
+		groupMap,
+		groupPlayers,
+		groupEnemies,
+		groupColliders
+		//Can have up to 32 groups
+	};
+
 private:
 	int count = 0;
 	bool isRunning;
@@ -38,6 +46,7 @@ private:
 
 
 #endif /* Game_h */
+
 
 
 
