@@ -145,10 +145,6 @@ void Game::clean()
 	std::cout << "Game cleaned" << std::endl;
 }
 
-void Game::AddTile(int srcX, int srcY, int xpos, int ypos) {
-	
-}
-
 
 
 
