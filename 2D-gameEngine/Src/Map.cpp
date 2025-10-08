@@ -8,7 +8,7 @@ extern Manager manger;
 
 
 Map::Map(const char* mfp, int ms, int ts) : mapFilePath(mfp), mapScale(ms), tileSize(ts){
-  
+	scaledSize = ms * ts;
 }
 
 Map::~Map() {
@@ -28,7 +28,7 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 			srcY = atoi(&c) * tileSize;
 			mapFile.get(c);
 			srcX = atoi(&c) * tileSize;
-			AddTile(srcX, srcY, x * (tileSize * mapScale), y * (tileSize * mapScale));
+			AddTile(srcX, srcY, x * scaledSize, y * scaledSize);
 			mapFile.ignore();
 		}
 	}
@@ -40,7 +40,7 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 			mapFile.get(c);
 			if(c =='1'){
 				auto& tcol(manager.addentity());
-				tcol.addComponent<ColliderComponent>("terrain", x * (tileSize * mapScale), y * (tileSize * mapScale), tileSize * mapScale);
+				tcol.addComponent<ColliderComponent>("terrain", x * scaledSize, y * scaledSize, scaledSize);
 				mapFile.ignore();
 			}
 			mapFile.ignore();
