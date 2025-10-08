@@ -22,14 +22,6 @@ auto& enemy(manager.addEntity());
 
 const char* mapfile = "assests/terrain_ss.png"
 
-enum groupLabels : std::size_t{
-	groupMap,
-	groupPlayers,
-	groupEnemies,
-	groupColliders
-	//Can have up to 32 groups
-};
-
 //Lists of objests in each group
 auto& tiles(manager.getGroup(groupMap));
 auto& players(manager.getGroup(groupPlayers));
@@ -144,6 +136,7 @@ void Game::clean()
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
 }
+
 
 
 
