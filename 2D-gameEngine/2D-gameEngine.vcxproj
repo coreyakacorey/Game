@@ -144,7 +144,9 @@
     <Image Include="Assests\dirt.png" />
     <Image Include="Assests\Enemy.png" />
     <Image Include="Assests\grass.png" />
+    <Image Include="Assests\map.png" />
     <Image Include="Assests\player.png" />
+    <Image Include="Assests\Terrain.png" />
     <Image Include="Assests\Turtle_animations.png" />
     <Image Include="Assests\Turtle_idle.png" />
     <Image Include="Assests\Turtle.png" />

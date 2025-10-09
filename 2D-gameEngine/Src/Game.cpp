@@ -12,6 +12,7 @@ SDL_Event Game::event;
 
 SDL_Rect Game::camera = {0,0, 800, 640};
 
+
 bool Game::isRunning = false;
 
 Manager manager;
@@ -97,16 +98,16 @@ void Game::handelEvents()
 void Game::update()
 {
 	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
-	Vector2D playerPos = player.gerComponent<TransformComponent>().position;
+	Vector2D playerPos = player.getComponent<TransformComponent>().position;
 	
 	//map->LoadMap();
 	manager.refresh();
 	manager.update();
 
 	for(auto& c : colliders){
-		SDL_Rect cCol = c->getComponent<ColliderComponent)().collider;
+		SDL_Rect cCol = c->getComponent<ColliderComponent>().collider;
 		if(Collision::AABB(cCol, playerCol)){
-			player.getComponents<TransformComponent>().position = playerPos;
+			player.getComponent<TransformComponent>().position = playerPos;
 		}
 	}
 

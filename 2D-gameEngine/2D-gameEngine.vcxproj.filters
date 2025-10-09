@@ -42,6 +42,12 @@
     <Image Include="Assests\Turtle_animations.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Assests\map.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assests\Terrain.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Game.cpp">
