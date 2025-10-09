@@ -16,7 +16,7 @@ Map::~Map() {
 }
 
 void Map::loadMap(std::string path, int sizeX, int sizeY){
-	char tile;
+	char c;
 	std::fstream mapFile;
 	mapFile.open(path);
 
