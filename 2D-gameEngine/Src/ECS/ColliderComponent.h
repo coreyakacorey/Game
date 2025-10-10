@@ -9,8 +9,8 @@ public:
 	SDL_Rect collider;
 	std::string tag;
 
-SDL_Texture* tex;
-SDL_Rect srcR, destR;
+	SDL_Texture* tex;
+	SDL_Rect srcR, destR;
 
 	TransformComponent* transform;
 
@@ -31,7 +31,7 @@ SDL_Rect srcR, destR;
 		}
 		transform = &entity->getComponent<TransformComponent>();
 
-		tex = TextureManager::LoadTexture("assests/colTex.png");
+		tex = TextureManager::LoadTexture("assets/colTex.png");
 		srcR = {0, 0, 32, 32};
 		destR = {collider.x, collider.y, collider.w, collider.h};
 	}
