@@ -8,6 +8,7 @@ class ColliderComponent : public Component {
 public:
 	SDL_Rect collider;
 	std::string tag;
+	int type;
 
 	SDL_Texture* tex;
 	SDL_Rect srcR, destR;
@@ -18,20 +19,71 @@ public:
 		tag = t;
 	}
 
-	ColliderComponent(std::string t, int xpos, int ypos, int size){
+	//Optional, switch on tag
+	ColliderComponent(std::string t, int xpos, int ypos, int size, int type){
 		tag = t;
-		collider.x = xpos;
+		type = type;
+
+		switch(type){
+			//Full tile
+			case 1:	
+				collider.x = xpos;
+				collider.y = ypos;
+				collider.h = collider.w = size;
+				break;
+			//Bottom half
+			case 2:
+				collider.x = xpos + (size / 2);
+				collider.y = ypos + (size / 2);
+				collider.h = collider.w = (size / 2);
+				break;
+			//Top half
+			case 3:
+				break;
+			//Left half
+			case 4:
+				break;
+			//Right half
+			case 5:
+				break;
+			default:
+				break;
+		}
+		/*collider.x = xpos;
 		collider.y = ypos;
-		collider.h = collider.w = size;
+		collider.h = collider.w = size;*/
 	}
 
+	//Optional, switch on tag
 	void init() override {
 		if (!entity->hasComponent<TransformComponent>()) {
 			entity->addComponent<TransformComponent>();
 		}
 		transform = &entity->getComponent<TransformComponent>();
 
-		tex = TextureManager::LoadTexture("assets/colTex.png");
+		switch(type){
+			//Full tile
+			case 1:	
+				tex = TextureManager::LoadTexture("assets/colTex.png");
+				break;
+			//Bottom half
+			case 2:
+				//tex = TextureManager::LoadTexture("assets/colTexBH.png");
+				break;
+			//Top half
+			case 3:
+				break;
+			//Left half
+			case 4:
+				break;
+			//Right half
+			case 5:
+				break;
+			default:
+				break;
+		}
+
+		//tex = TextureManager::LoadTexture("assets/colTex.png");
 		srcR = {0, 0, 32, 32};
 		destR = {collider.x, collider.y, collider.w, collider.h};
 	}
