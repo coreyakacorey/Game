@@ -37,10 +37,49 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 	for(int y = 0; y < sizeY; y++){
 		for(int x = 0; x < sizeX; x++){
 			mapFile.get(c);
-			if(c == '1'){
-				auto& tcol(manager.addEntity());
+
+			//Check collider type 1 full, 2 bottom half, 3 top half, 4 left half, 5 right half
+			if(c != '0'){
+
+				//optional, change tag for each different type, update ColliderComponent
+				switch (c){
+					case 1:
+						auto& tcol(manager.addEntity());
+						tcol.addComponent<ColliderComponent>("terrain", x * scaledSize, y * scaledSize, scaledSize, c);
+						tcol.addGroup(Game::groupColliders);
+						break;
+					case 2:
+						auto& tcol(manager.addEntity());
+						tcol.addComponent<ColliderComponent>("terrain", x * scaledSize, y * scaledSize, scaledSize, c);
+						tcol.addGroup(Game::groupColliders);
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					//May not need these, full tile may be a better option
+					//Bottom left
+					case 14:
+						//create 2 collider components, one type 1 and one type 4
+						break;
+					//Bottom right
+					case 15:
+						break;
+					//Top left
+					case 24:
+						break;
+					//Top right
+					case 25:
+						break;
+					default:
+						break;
+						
+				}
+				/*auto& tcol(manager.addEntity());
 				tcol.addComponent<ColliderComponent>("terrain", x * scaledSize, y * scaledSize, scaledSize);
-				tcol.addGroup(Game::groupColliders);
+				tcol.addGroup(Game::groupColliders);*/
 			}
 			mapFile.ignore();
 		}
