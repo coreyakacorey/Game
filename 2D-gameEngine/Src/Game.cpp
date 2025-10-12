@@ -13,12 +13,13 @@ Manager manager;
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
 
-SDL_Rect Game::camera = {0,0, 800, 640};
+const int width = 800;
+const int height = 640;
+
+SDL_Rect Game::camera = {0,0, width * 2, height * 2};
 AssetManager* Game::assets = new AssetManager(&manager);
 
-
 bool Game::isRunning = false;
-
 
 auto& player(manager.addEntity());
 auto& enemy(manager.addEntity());
@@ -68,7 +69,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	map = new Map("terrain", 3, 32);
 
-	map->loadMap("assets/maptext.txt", 16, 16);
+	map->loadMap("assets/Map25x20text.txt", 25, 20);
 
 	//player.addComponent<TransformComponent>(284,64);
 	player.addComponent<TransformComponent>(2);
@@ -119,9 +120,10 @@ void Game::update()
 {
 	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
 	Vector2D playerPos = player.getComponent<TransformComponent>().position;
+	Vector2D playerVel = player.getComponent<TransformComponent>().velocity;
 	
 	std::stringstream ss;
-	ss << "Player position: " << playerPos;
+	ss << "Player velocity: " << playerVel;
 	label.getComponent<UILabel>().SetLabelText(ss.str(), "arial");
 
 

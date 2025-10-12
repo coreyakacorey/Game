@@ -8,13 +8,15 @@ int main(int argc, char* argv[])
 
 	const int FPS = 60;
 	const int frameDelay = 1000 / FPS;
+	const int width = 800;
+	const int height = 640;
 
 	Uint32 frameStart;
 	int frameTime;
 
 	game = new Game();
 
-	game->init("adventure", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, false);
+	game->init("adventure", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, false);
 	
 	while (game->running()) {
 

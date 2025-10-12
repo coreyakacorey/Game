@@ -15,37 +15,46 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assests\player.png">
+    <Image Include="Assets\ColTex.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\dirt.png">
+    <Image Include="Assets\dirt.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\grass.png">
+    <Image Include="Assets\Enemy.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\water.png">
+    <Image Include="Assets\grass.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\Turtle.png">
+    <Image Include="Assets\map.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\Enemy.png">
+    <Image Include="Assets\player.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\Turtle_idle.png">
+    <Image Include="Assets\Proj.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\Turtle_walking.png">
+    <Image Include="Assets\Terrain.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\Turtle_animations.png">
+    <Image Include="Assets\Turtle_animations.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\map.png">
+    <Image Include="Assets\Turtle_idle.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assests\Terrain.png">
+    <Image Include="Assets\Turtle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Turtle_walking.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\water.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Map25x20.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
@@ -57,9 +66,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\TextureManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Map.cpp">
@@ -74,15 +80,15 @@
     <ClCompile Include="Src\ECS\ECS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\AssetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Map.h">
@@ -118,6 +124,15 @@
     <ClInclude Include="Src\ECS\Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Src\AssetManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\ECS\ProjectileComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\ECS\UILabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="libpng16-16.dll" />
@@ -125,6 +140,17 @@
     <None Include="SDL2_image.dll" />
     <None Include="zlib1.dll" />
     <None Include=".gitignore" />
-    <None Include="Assests\16x16.map" />
+    <None Include="Assets\16x16.map" />
+    <None Include="libfreetype-6.dll" />
+    <None Include="SDL2_ttf.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\collisionmap.txt" />
+    <Text Include="Assets\maptext.txt" />
+    <Text Include="Assets\Map25x20text.txt" />
+    <Text Include="Assets\Bigcollisionmap.txt" />
   </ItemGroup>
 </Project>

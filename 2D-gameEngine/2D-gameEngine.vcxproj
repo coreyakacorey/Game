@@ -147,6 +147,7 @@
     <Image Include="Assets\Enemy.png" />
     <Image Include="Assets\grass.png" />
     <Image Include="Assets\map.png" />
+    <Image Include="Assets\Map25x20.png" />
     <Image Include="Assets\player.png" />
     <Image Include="Assets\Proj.png" />
     <Image Include="Assets\Terrain.png" />
@@ -195,7 +196,9 @@
     <None Include="zlib1.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Assets\Bigcollisionmap.txt" />
     <Text Include="Assets\collisionmap.txt" />
+    <Text Include="Assets\Map25x20text.txt" />
     <Text Include="Assets\maptext.txt" />
   </ItemGroup>
   <ItemGroup>

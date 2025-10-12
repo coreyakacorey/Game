@@ -14,56 +14,50 @@ public:
 	}
 
 	void update() override {
-		if (Game::event.type == SDL_KEYDOWN) {
-			switch (Game::event.key.keysym.sym)
-			{
-			case SDLK_w:
-				transform->velocity.y = -1;
-				sprite->Play("Walk");
-				break;
-			case SDLK_a:
-				transform->velocity.x = -1;
-				sprite->Play("Walk");
-				sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
-				break;
-			case SDLK_d:
-				transform->velocity.x = 1;
-				sprite->Play("Walk");
-				break;
-			case SDLK_s:
-				transform->velocity.y = 1;
-				sprite->Play("Walk");
-				break;
-			default:
-				break;
-			}
+		//Get keybaord state
+		const Uint8* ks = SDL_GetKeyboardState(nullptr);
+
+		//Movement intent
+		int x = (ks[SDL_SCANCODE_D] ? 1 : 0) - (ks[SDL_SCANCODE_A] ? 1 : 0);
+		int y = (ks[SDL_SCANCODE_S] ? 1 : 0) - (ks[SDL_SCANCODE_W] ? 1 : 0);
+	
+		//Apply velocity
+		transform->velocity.x = static_cast<float>(x);
+		transform->velocity.y = static_cast<float>(y);
+
+		//Scale diagonal speed
+		if (x && y) {
+			const float invSqrt2 = 0.707f;
+			transform->velocity.x *= invSqrt2;
+			transform->velocity.y *= invSqrt2;
 		}
 
-		if (Game::event.type == SDL_KEYUP) {
-			switch (Game::event.key.keysym.sym)
-			{
-			case SDLK_w:
-				transform->velocity.y = 0;
-				sprite->Play("Idle");
-				break;
-			case SDLK_a:
-				transform->velocity.x = 0;
-				sprite->Play("Idle");
-				sprite->spriteFlip = SDL_FLIP_NONE;
-				break;
-			case SDLK_d:
-				transform->velocity.x = 0;
-				sprite->Play("Idle");
-				break;
-			case SDLK_s:
-				transform->velocity.y = 0;
-				sprite->Play("Idle");
-				break;
-			case SDLK_ESCAPE:
-				Game::isRunning = false;	
-			default:
-				break;
-			}
+		//Sprite direction
+		if (transform->velocity.x < 0) {
+			sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
 		}
+		else if (transform->velocity.x > 0) {
+			sprite->spriteFlip = SDL_FLIP_NONE;
+		}
+
+		//Sprite animations
+		if (x != 0 || y != 0) {
+			sprite->Play("Walk");
+		}
+		else {
+			sprite->Play("Idle");
+		}
+
+		if (ks[SDL_SCANCODE_SPACE]) {
+			Vector2D vel;
+			if (sprite->spriteFlip == SDL_FLIP_NONE) {
+				vel = Vector2D(2, 0);
+			}
+			else {
+				vel = Vector2D(-2, 0);
+			}
+			Game::assets->CreateProjectile(Vector2D(transform->position.x + (transform->width / 2), transform->position.y + (transform->height / 2)), vel, 200, 1, "projectile");
+		}
+
 	}
 };
