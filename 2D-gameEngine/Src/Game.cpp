@@ -76,6 +76,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	player.addComponent<SpriteComponent>("player", true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
+	//Add health component
+	//player.addComponent<HealthComponent>(100);
 	player.addGroup(groupPlayers);
 
 	SDL_Color white = { 255, 255, 255, 255 };
@@ -121,6 +123,7 @@ void Game::update()
 	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
 	Vector2D playerPos = player.getComponent<TransformComponent>().position;
 	Vector2D playerVel = player.getComponent<TransformComponent>().velocity;
+	int playerHealth = player.getComponent<HealthComponent>().curHealth;
 	
 	std::stringstream ss;
 	ss << "Player velocity: " << playerVel;
@@ -212,6 +215,7 @@ void Game::clean()
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
 }
+
 
 
 
