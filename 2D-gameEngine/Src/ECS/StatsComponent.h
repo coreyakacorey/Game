@@ -7,9 +7,8 @@ public:
   int curHealth;
   bool isAlive = true;
 
-  HealthComponent(int maxH, int curH) {
-    maxHealth = maxH;
-    curHealth - curH;
+  HealthComponent(int maxH) {
+    curHealth = maxHealth = maxH;
   }
   ~HealthComponent() {}
 
