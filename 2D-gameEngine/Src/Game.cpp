@@ -21,7 +21,7 @@ AssetManager* Game::assets = new AssetManager(&manager);
 
 bool Game::isRunning = false;
 
-auto& player(manager.addEntity());
+//auto& player(manager.addEntity());
 auto& enemy(manager.addEntity());
 auto& label(manager.addEntity());
 
@@ -71,14 +71,16 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	map->loadMap("assets/Map25x20text.txt", 25, 20);
 
+	assets->CreatePlayer(3, "player", true);
+
 	//player.addComponent<TransformComponent>(284,64);
-	player.addComponent<TransformComponent>(2);
+	/*player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("player", true);
 	player.addComponent<KeyboardController>();
-	player.addComponent<ColliderComponent>("player");
+	player.addComponent<ColliderComponent>("player");*/
 	//Add health component
 	//player.addComponent<HealthComponent>(100);
-	player.addGroup(groupPlayers);
+	//player.addGroup(groupPlayers);
 
 	SDL_Color white = { 255, 255, 255, 255 };
 
@@ -215,6 +217,7 @@ void Game::clean()
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
 }
+
 
 
 
