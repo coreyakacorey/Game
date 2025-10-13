@@ -7,6 +7,17 @@ AssetManager::AssetManager(Manager* man) : manager(man)
 AssetManager::~AssetManager()
 {}
 
+void AssetManager::CreatePlayer(int scale, std::string id, bool isAnimated)){
+	auto& player(manager.addEntity());
+	player.addComponent<TransformComponent>(scale);
+	player.addComponent<SpriteComponent>(id, isAnimated);
+	player.addComponent<KeyboardController>();
+	player.addComponent<ColliderComponent>(id);
+	//Add health component
+	//player.addComponent<HealthComponent>(100);
+	player.addGroup(groupPlayers);
+}
+
 void AssetManager::CreateProjectile(Vector2D pos, Vector2D vel, int range, int speed, std::string id)
 {
 	auto& projectile(manager->addEntity());
