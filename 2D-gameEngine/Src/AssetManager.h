@@ -14,6 +14,7 @@ public:
 
 	//gameobjects
 
+	void CreatePlayer(int scale, std::string id, bool isAnimated);
 	void CreateProjectile(Vector2D pos, Vector2D vel, int range, int speed, std::string id);
 
 	//texture management
