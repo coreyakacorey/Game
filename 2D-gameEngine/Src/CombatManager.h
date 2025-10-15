@@ -5,7 +5,7 @@ public:
   CombatManager(Manager* man);
   ~CombatManager();
 
-  void Damage(Entity* attEnt, Entity* defEnt);
+  void Damage(Entity* targetEnt, Entity* sourceEnt);
 
 private:
 
