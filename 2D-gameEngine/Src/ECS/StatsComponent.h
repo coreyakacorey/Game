@@ -21,6 +21,7 @@ public:
 
     if(curHealth <= 0){
       isAlive = false;
+      entity->destory();
       //delete entity
 
     }
