@@ -123,6 +123,7 @@ void Game::handelEvents()
 void Game::update()
 {
 	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
+	SDL_Rect enemyCol = enemy.getComponent<ColliderComponent>().collider;
 	Vector2D playerPos = player.getComponent<TransformComponent>().position;
 	Vector2D playerVel = player.getComponent<TransformComponent>().velocity;
 	int playerHealth = player.getComponent<HealthComponent>().curHealth;
@@ -138,6 +139,13 @@ void Game::update()
 
 	for(auto& c : colliders){
 		SDL_Rect cCol = c->getComponent<ColliderComponent>().collider;
+
+		if (cCol.getComponent<ColliderComponent>().tag == "projectile") {
+			if (Collision::AABB(cCol, enemyCol)) {
+				enemy.getComponent<HealthComponent>().curHealth = curHealth--;
+				std::cout << "Enemy hit" << std::endl;
+			}
+		}
 		
 		/*if (Collision::AABB(cCol, playerCol)) {
 			player.getComponent<TransformComponent>().position.x = playerPos.x;
@@ -217,6 +225,7 @@ void Game::clean()
 	SDL_Quit();
 	std::cout << "Game cleaned" << std::endl;
 }
+
 
 
 
