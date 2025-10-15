@@ -5,6 +5,8 @@
 
 class ProjectileComponent : public Component {
 public:
+
+	int damage = 1;
 	ProjectileComponent(int range, int speed, Vector2D velocity) : range(range), speed(speed), velocity(velocity) {}
 	~ProjectileComponent() {}
 
