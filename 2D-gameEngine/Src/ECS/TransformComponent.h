@@ -24,12 +24,10 @@ public:
 	TransformComponent(int sc) {
 		position.x = 400;
 		position.y = 320;
-		//position.Zero(); 
 		scale = sc;
 	}
 
 	TransformComponent(float x, float y) {
-		//position.Zero();
 		position.x = x;
 		position.y = y;
 	}
