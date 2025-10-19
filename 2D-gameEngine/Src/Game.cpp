@@ -73,17 +73,12 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	assets->AddFont("arial", "assets/arial.ttf", 16);
 
 	map = new Map("terrain", 3, 32);
-
 	map->loadMap("assets/Map25x20text.txt", 25, 20);
 
-	//assets->CreatePlayer(3, "player", true);
-
-	//player.addComponent<TransformComponent>(284,64);
 	player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("player", true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
-	//Add health component
 	player.addComponent<StatsComponent>(100, 1);
 	player.addGroup(groupPlayers);
 
@@ -113,7 +108,6 @@ auto& projectiles(manager.getGroup(Game::groupProjectiles));
 
 void Game::handelEvents()
 {
-
 	SDL_PollEvent(&event);
 
 	switch (event.type)
@@ -130,11 +124,9 @@ void Game::handelEvents()
 void Game::update()
 {
 	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
-	//SDL_Rect enemyCol = SDL_Rect();
 	Vector2D playerPos = player.getComponent<TransformComponent>().position;
 	Vector2D playerVel = player.getComponent<TransformComponent>().velocity;
 	int playerHealth = player.getComponent<StatsComponent>().curHealth;
-	//int enemyHealth = enemy.getComponent<StatsComponent>().curHealth;
 	
 	/*if (enemy.hasComponent<StatsComponent>() == NULL) {
 		std::stringstream ss;
@@ -150,12 +142,10 @@ void Game::update()
 	label.getComponent<UILabel>().SetLabelText(ss.str(), "arial");
 	
 	for(auto& c : colliders){
-		auto& colComp = c->getComponent<ColliderComponent>();
 		SDL_Rect cCol = c->getComponent<ColliderComponent>().collider;
 		std::string tag = c->getComponent<ColliderComponent>().tag;
 		auto& enemyC = enemy.getComponent<ColliderComponent>().collider;
 		auto& enemyC2 = enemy2.getComponent<ColliderComponent>().collider;
-		//std::cout << enemyC2.x << " " << enemyC2.y << std::endl;
 
 		if (tag == "projectile") {
 			if (enemy.hasComponent<StatsComponent>() != NULL) {
@@ -183,15 +173,12 @@ void Game::update()
 			case 0:
 				break;
 			case 1:
-				std::cout << "top" << std::endl;
 				player.getComponent<TransformComponent>().position.y = playerPos.y + 1;
 				break;
 			case 2:
-				std::cout << "right" << std::endl;
 				player.getComponent<TransformComponent>().position.x = playerPos.x - 1;
 				break;
 			case 3:
-				std::cout << "bottom" << std::endl;
 				player.getComponent<TransformComponent>().position.y = playerPos.y - 1;
 				break;
 			case 4:
@@ -202,12 +189,6 @@ void Game::update()
 
 			}
 		}
-
-		/*if (Collision::AABBint(cCol, playerCol) != 0) {
-			player.getComponent<TransformComponent>().position.x = playerPos.x;
-			player.getComponent<TransformComponent>().position.y = playerPos.y;
-			//std::cout << "Player: "  <<  std::endl;
-		}*/
 	}
 
 	camera.x = static_cast<int>(player.getComponent<TransformComponent>().position.x - 400);
@@ -243,7 +224,6 @@ void Game::render()
 	}
 
 	label.draw();
-
 	SDL_RenderPresent(renderer);
 }
 
