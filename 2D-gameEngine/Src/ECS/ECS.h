@@ -52,12 +52,14 @@ private:
 	bool active = true;
 	std::vector<std::unique_ptr<Component>> components;
 
-	ComponentArray componentArray;
+	ComponentArray componentArray{};
 	ComponentBitSet componentBitSet;
 	GroupBitSet groupBitSet;
 
 public:
-	Entity(Manager& mManager) : manager(mManager) {}
+	Entity(Manager& mManager) : manager(mManager) {
+		componentArray.fill(nullptr);
+	}
 
 	void update() {
 		for (auto& c : components) c->update();
@@ -68,7 +70,7 @@ public:
 	}
 
 	bool isActive() const { return active; }
-	void destory() { active = false; }
+	void destroy() { active = false; }
 
 	bool hasGroup(Group mGroup){
 		return groupBitSet[mGroup];
@@ -122,7 +124,7 @@ public:
 			v.erase(
 				std::remove_if(std::begin(v), std::end(v),
 				[i](Entity* mEntity){
-					return !mEntity->isActive() | !mEntity->hasGroup(i);
+					return !mEntity->isActive() || !mEntity->hasGroup(i);
 				}),
 			std::end(v));
 		}

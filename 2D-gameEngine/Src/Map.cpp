@@ -42,7 +42,7 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 			if(c != '0'){
 
 				//optional, change tag for each different type, update ColliderComponent
-				switch (c){
+				/*witch(c) {
 					case 1:
 						auto& tcol(manager.addEntity());
 						tcol.addComponent<ColliderComponent>("terrain", x * scaledSize, y * scaledSize, scaledSize, c);
@@ -76,10 +76,10 @@ void Map::loadMap(std::string path, int sizeX, int sizeY){
 					default:
 						break;
 						
-				}
-				/*auto& tcol(manager.addEntity());
-				tcol.addComponent<ColliderComponent>("terrain", x * scaledSize, y * scaledSize, scaledSize);
-				tcol.addGroup(Game::groupColliders);*/
+				}*/
+				auto& tcol(manager.addEntity());
+				tcol.addComponent<ColliderComponent>("terrain", x * scaledSize, y * scaledSize, scaledSize, 1);
+				tcol.addGroup(Game::groupColliders);
 			}
 			mapFile.ignore();
 		}

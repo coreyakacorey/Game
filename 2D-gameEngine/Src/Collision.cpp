@@ -9,8 +9,8 @@ bool Collision::AABB(const SDL_Rect& recA, const SDL_Rect& recB) {
 		recB.y + (recB.h) >= recA.y         // B’s bottom is below A’s top
 		) {
 
-		//if (recA.y + recA.h > recB.y) { std::cout << "Rec A: " << recA.y + recA.h << " " << "Rec B: " << recB.y << " " << recA.h << std::endl; }
-		//std::cout << "Rec A:" << recA.x << " " << recA.y << "Rec B:" << recB.x << " " << recB.y << std::endl;
+		/*if (recA.y + recA.h > recB.y) { std::cout << "Rec A: " << recA.y + recA.h << " " << "Rec B: " << recB.y << " " << recA.h << std::endl; }
+		std::cout << "Rec A:" << recA.x << " " << recA.y << "Rec B:" << recB.x << " " << recB.y << std::endl;*/
 		return true;
 	}
 	return false;

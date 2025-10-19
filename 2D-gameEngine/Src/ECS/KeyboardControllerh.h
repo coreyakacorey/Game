@@ -49,21 +49,15 @@ public:
 			sprite->Play("Idle");
 		}
 		
-		if (ks[SDL_SCANCODE_SPACE]) {
-			if (oneTime == 1){
-				oneTime = 0;
-				Vector2D vel;
-				if (sprite->spriteFlip == SDL_FLIP_NONE) {
-					vel = Vector2D(2, 0);
-				}
-				else {
-					vel = Vector2D(-2, 0);
-				}
-				Game::assets->CreateProjectile(Vector2D(transform->position.x + (transform->width / 2), transform->position.y + (transform->height / 2)), vel, 200, 1, "projectile");
+		if (Game::event.type == SDL_KEYDOWN && Game::event.key.keysym.sym == SDLK_SPACE) {
+			Vector2D vel;
+			if (sprite->spriteFlip == SDL_FLIP_NONE) {
+				vel = Vector2D(2, 0);
 			}
-			if(Game::event.type == SDL_KEYUP){
-				oneTime = 1;
+			else {
+				vel = Vector2D(-2, 0);
 			}
+			Game::assets->CreateProjectile(Vector2D(transform->position.x + (transform->width / 2), transform->position.y + (transform->height / 2)), vel, 200, 1, "projectile");
 		}
 
 	}

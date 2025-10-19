@@ -160,6 +160,7 @@
   <ItemGroup>
     <ClCompile Include="Src\AssetManager.cpp" />
     <ClCompile Include="Src\Collision.cpp" />
+    <ClCompile Include="Src\CombatManager.cpp" />
     <ClCompile Include="Src\ECS\ECS.cpp" />
     <ClCompile Include="Src\Game.cpp" />
     <ClCompile Include="Src\main.cpp" />
@@ -170,12 +171,14 @@
   <ItemGroup>
     <ClInclude Include="Src\AssetManager.h" />
     <ClInclude Include="Src\Collision.h" />
+    <ClInclude Include="Src\CombatManager.h" />
     <ClInclude Include="Src\ECS\Animation.h" />
     <ClInclude Include="Src\ECS\ColliderComponent.h" />
     <ClInclude Include="Src\ECS\Components.h" />
     <ClInclude Include="Src\ECS\ECS.h" />
     <ClInclude Include="Src\ECS\KeyboardControllerh.h" />
     <ClInclude Include="Src\ECS\ProjectileComponent.h" />
+    <ClInclude Include="Src\ECS\StatsComponent.h" />
     <ClInclude Include="Src\ECS\TileComponent.h" />
     <ClInclude Include="Src\ECS\TransformComponent.h" />
     <ClInclude Include="Src\ECS\SpriteComponenet.h" />
