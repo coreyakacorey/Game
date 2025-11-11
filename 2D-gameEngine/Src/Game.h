@@ -21,6 +21,7 @@ public:
 	void update();
 	void render();
 	void clean();
+	void SpawnEnemy();
 
 	bool running() { return isRunning;  }
 

@@ -14,14 +14,16 @@ void CombatManager::endOfFrameResolve() {
 	for (const auto& h : hits) {
 		if (!h.target || !h.target->isActive()) continue;
 		if (!h.target->hasComponent<StatsComponent>()) {
-			h.attackEnt->getComponent<StatsComponent>().exp += h.target->getComponent<StatsComponent>().exp;
+			
 			continue;
 		}
 
 		auto& hp = h.target->getComponent<StatsComponent>();
 		hp.curHealth -= h.amount;
+		h.attackEnt->getComponent<StatsComponent>().exp += h.target->getComponent<StatsComponent>().exp;
 
 		if (h.source && h.source->isActive()) {
+			h.source->delGroup();
 			h.source->destroy();
 		}
 	}

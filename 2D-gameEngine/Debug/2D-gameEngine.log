@@ -1,2 +1,40 @@
-﻿  CombatManager.cpp
+﻿  Game.cpp
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\StatsComponent.h(43,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\StatsComponent.h(43,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\StatsComponent.h(44,76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\StatsComponent.h(44,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Src/Game.cpp')
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(90,33): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(90,33): warning C4244:         with
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(90,33): warning C4244:         [
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(90,33): warning C4244:             _Ty=int
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(90,33): warning C4244:         ]
+  (compiling source file 'Src/Game.cpp')
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(90,33):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(91,7):
+  	see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int>(int &&,int &&)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+  
+C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(90,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Src/Game.cpp')
+  C:\Users\corey\source\repos\Game\2D-gameEngine\Src\ECS\ECS.h(90,33):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\corey\source\repos\Game\2D-gameEngine\Src\Game.cpp(138,10):
+  	see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int&,int&>(int &,int &)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+  
   2D-gameEngine.vcxproj -> C:\Users\corey\source\repos\Game\2D-gameEngine\Debug\2D-gameEngine.exe

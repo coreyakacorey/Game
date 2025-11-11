@@ -27,7 +27,8 @@ auto& player(manager.addEntity());
 auto& enemy(manager.addEntity());
 auto& enemy2(manager.addEntity());
 //Entity* enemy3 = &manager.addEntity();
-auto& label(manager.addEntity());
+auto& lvlLabel(manager.addEntity());
+auto& expLabel(manager.addEntity());
 
 Game::Game()
 {}
@@ -84,7 +85,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	SDL_Color white = { 255, 255, 255, 255 };
 
-	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
+	lvlLabel.addComponent<UILabel>(10, 10, "level", "arial", white);
+	expLabel.addComponent<UILabel>(50, 10, "exp", "arial", white);
 
 	enemy.addComponent<TransformComponent>(350, 348);
 	enemy.addComponent<SpriteComponent>("enemy");
@@ -95,7 +97,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	enemy2.addComponent<TransformComponent>(500, 500);
 	enemy2.addComponent<SpriteComponent>("enemy");
 	enemy2.addComponent<ColliderComponent>("enemy2");
-	enemy2.addComponent<StatsComponent>(5, 1, 4);
+	enemy2.addComponent<StatsComponent>(10, 1, 10);
 	enemy2.addGroup(groupEnemies);
 }
 
@@ -121,6 +123,25 @@ void Game::handelEvents()
 	}
 }
 
+void Game::SpawnEnemy() {
+	auto& newEnemy = manager.addEntity();
+	newEnemy.addGroup(groupEnemies);
+
+	// Example of initializing
+	//newEnemy.addComponent<TransformComponent>(/*position, size, etc*/);
+	//newEnemy.addComponent<SpriteComponent>("enemyTexture");
+	//newEnemy.addComponent<AIComponent>(); // or movement logic
+
+	// Maybe randomize spawn position
+	int x = rand() % 100;
+	int y = rand() % 200;
+	newEnemy.addComponent<TransformComponent>(x, y);
+	newEnemy.addComponent<SpriteComponent>("enemy");
+	newEnemy.addComponent<ColliderComponent>("enemy");
+	newEnemy.addComponent<StatsComponent>(5, 1, 5);
+	newEnemy.addGroup(groupEnemies);
+}
+
 void Game::update()
 {
 	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
@@ -137,9 +158,12 @@ void Game::update()
 	//map->LoadMap();
 	manager.update();
 
-	std::stringstream ss;
-	ss << "Lvl: " << player.getComponent<StatsComponent>().exp;
-	label.getComponent<UILabel>().SetLabelText(ss.str(), "arial");
+	std::stringstream lvlString;
+	lvlString << "Lvl: " << player.getComponent<StatsComponent>().level;
+	lvlLabel.getComponent<UILabel>().SetLabelText(lvlString.str(), "arial");
+	std::stringstream expString;
+	expString << "exp: " << player.getComponent<StatsComponent>().exp;
+	expLabel.getComponent<UILabel>().SetLabelText(expString.str(), "arial");
 	
 	for(auto& c : colliders){
 		SDL_Rect cCol = c->getComponent<ColliderComponent>().collider;
@@ -200,6 +224,14 @@ void Game::update()
 	if(camera.x > camera.w) camera.x = camera.w;
 	if(camera.y > camera.h) camera.y = camera.h;
 
+	auto& eneimes = manager.getGroup(groupEnemies);
+	if (eneimes.size() < 2) {
+		int missing = 2 - eneimes.size();
+		for (int i = 0; i < missing; i++) {
+			SpawnEnemy();
+		}
+	}
+
 	combat->endOfFrameResolve();
 	manager.refresh();
 }
@@ -223,7 +255,8 @@ void Game::render()
 		e->draw();
 	}
 
-	label.draw();
+	lvlLabel.draw();
+	expLabel.draw();
 	SDL_RenderPresent(renderer);
 }
 
